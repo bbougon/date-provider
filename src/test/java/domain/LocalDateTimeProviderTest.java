@@ -21,6 +21,13 @@ public class LocalDateTimeProviderTest {
         assertThat(LocaleDateTimeProvider.now()).isEqualTo(LocalDateTime.of(1970, 1, 11, 1, 0, 0, 0));
     }
 
+    @Test
+    public void localDateTimeProviderReturnsRealDate() {
+        avecLocalDateTimeProvider.resetClock();
+
+        assertThat(LocaleDateTimeProvider.now()).isNotSameAs(LocalDateTime.now());
+    }
+
     @Rule
     public AvecLocalDateTimeProvider avecLocalDateTimeProvider = new AvecLocalDateTimeProvider();
 

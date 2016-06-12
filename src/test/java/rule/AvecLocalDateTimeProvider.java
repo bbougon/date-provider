@@ -24,5 +24,9 @@ public class AvecLocalDateTimeProvider extends ExternalResource {
         };
     }
 
+    public void resetClock() {
+        LocaleDateTimeProvider.timeProvider = new LocaleDateTimeProvider.TimeProvider(Clock.systemDefaultZone());
+    }
+
     public static final Clock FIXED = Clock.fixed(Instant.EPOCH, ZoneId.systemDefault());
 }
